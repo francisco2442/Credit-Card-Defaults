@@ -7,7 +7,7 @@ This dataset was obtained from the University of California, Irvine archives.
 
 Source: https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients
 
-## Goals
+## Project Goals
 ### Goal 1:
 Employ exploratory data analysis techniques on the data set.
 ### Goal 2:
