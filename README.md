@@ -13,6 +13,8 @@ Employ exploratory data analysis techniques on the data set.
 ### Goal 2:
 Run a logistical regression to predict the probability of a client defaulting on their next month's credit card payment.
 ### Goal 3:
-Run a simple PCA "Principal Component Analysis" on the data and check how the first 5 PCs load all the variables
+Run a simple PCA "Principal Component Analysis" on the data and check how the first 5 PCs load all the variables.
+### Goal 4:
+Run a K-means cluster on the data with k = 4, and plot the chart with variables limit_bal and bill_amt. Briefly explain the 4 clusters in the chart.
 
 
