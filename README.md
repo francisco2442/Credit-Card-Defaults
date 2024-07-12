@@ -17,4 +17,4 @@ Run a simple PCA "Principal Component Analysis" on the data and check how the fi
 ### Goal 4:
 Run a K-means cluster on the data with k = 4, and plot the chart with variables limit_bal and bill_amt. Briefly explain the 4 clusters in the chart.
 
-
+## conclusion
