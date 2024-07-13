@@ -23,6 +23,8 @@ str(credit1)
 summary(credit1)
 ```
 
+### Missing Values & Unwanted Variables
+
 The next step is to find out if we have any missing value, or if we will need to preform other types of data management.
 
 ```{R}
@@ -50,25 +52,39 @@ credit %>%
   xlab("Default (0:No, 1:Yes)") + ylab("Percent") + ggtitle("Default Percent")
 ```
 
+### Comment
+
 We see that 22.1% of clients have defaulted on their monthly payment and 77.9% of clients have not.
 
-Visuals Continued
+### Visuals Continued
 
 ```{R}
 library(ggplot2)
 ggplot(credit, aes(x = LIMIT_BAL)) + geom_histogram()
+```
+
+### LIMIT_BAL Histogram Comment
+
+If we look at the Histogram using our LIMIT_BAL variable it shows us the number of clients with a given credit balance in Taiwan Dollars. We can see that there is a large amount of clients with lower credit balances and a lower number of clients with higher credit amounts.
+
+```{R}
+library(ggplot2)
 ggplot(credit, aes(x = SEX)) + geom_histogram()
 ggplot(credit, aes(x = EDUCATION)) + geom_histogram()
 ggplot(credit, aes(x = MARRIAGE)) + geom_histogram()
 ggplot(credit, aes(x = AGE)) + geom_histogram()
+```
+
+### AGE Histogram Comment
+
+If we look at the Histogram using our AGE variable it shows us the number of credit card clients by age. We can see that the majority of clients are younger than 40 years of age.
+
+```{R}
+library(ggplot2)
 ggplot(credit, aes(x = PAY_0)) + geom_histogram()
 ggplot(credit, aes(x = PAY_2)) + geom_histogram()
 table(credit$PAY_0)
 ```
-
-Limit_bal histogram - shows us the number of clients with a given credit balance in Taiwan Dollars. We can see that there is a large amount of clients with lower credit balances and a lower number of clients with higher credit amounts.
-
-Age histogram - Shows us the number of credit card clients by age. We can see that the majority of clients are younger than 40 years of age.
 
 ### Data Management
 
@@ -95,6 +111,20 @@ credit$MARRIAGE=as.factor(credit$MARRIAGE)
 
 Let us explore our data a little bit more. In this section we will run some simple EDA "Exploratory Data Analysis" by using ggplot to create some bar charts, box plot, and violin charts. This will help us better understand our data.
 
+### Bar Chart
+
+In the bar charts there are two components the first being the variable that we are observing which is on the X - axis, and the second is if the client defaulted on their monthly payment where the salmon color means no, and the blue means yes.
+
+If we take a look at the education bar chart where, 1 = graduate school, 2 = university, 3 = high school, and 4 = other. We can see that the majority of the credit card clients have a university degree or higher. We can also see the split between clients who did not default on their payment an clients who did default on their payment relative to the category the client falls under.
+
+### Violin and Box Chart
+
+If we look at the violin and box charts. The first thing we notice is that we have separated the clients who have defaulted on their credit card payment from those who did not. We did this to compare the two groups to each other.
+
+In the violin and box charts, like the bar charts, are made up of multiple components. This time our variable we are observing is on the Y - axis. The first part of our visual insights is the violin, or blob looking portion of the chart. This part of the chart allows us to see the density of observations as we move up from 0. The wider the blob the greater the number of observations, the narrower the blob the lesser the number of observations. The second part, is the box plot which allows us to see the median, upper quartile, lower quartile, and both upper and lower extremes. The last part is if the client defaulted on their monthly payment where the salmon color means no, and the blue means yes.
+
+Lets take a look at the characteristics of the clients who did not default on their payment compared to those of the clients who did using our limit_bal variable. The first thing to make note of is that the group that defaulted has a wider base, letting us know that there was a large amount of clients who defaulted with lower credit limits available to them. The second thing we notice is that the group that did not default has more clients with larger credit limits and an outlier with a really high credit limit compared to the default group. 
+
 ```{R}
 # Some simple EDA
 # Default against catergorial variables
@@ -117,19 +147,13 @@ ggplot(credit, aes(x=default.payment.next.month, y=PAY_AMT1, fill=default.paymen
   ylim(0,10000)
 ```
 
-In the bar charts there are two components the first being the variable that we are observing which is on the X - axis, and the second is if the client defaulted on their monthly payment where the salmon color means no, and the blue means yes.
-
-If we take a look at the education bar chart where, 1 = graduate school, 2 = university, 3 = high school, and 4 = other. We can see that the majority of the credit card clients have a university degree or higher. We can also see the split between clients who did not default on their payment an clients who did default on their payment relative to the category the client falls under.
-
-If we look at the violin and box charts. The first thing we notice is that we have separated the clients who have defaulted on their credit card payment from those who did not. We did this to compare the two groups to each other.
-
-In the violin and box charts, like the bar charts, are made up of multiple components. This time our variable we are observing is on the Y - axis. The first part of our visual insights is the violin, or blob looking portion of the chart. This part of the chart allows us to see the density of observations as we move up from 0. The wider the blob the greater the number of observations, the narrower the blob the lesser the number of observations. The second part, is the box plot which allows us to see the median, upper quartile, lower quartile, and both upper and lower extremes. The last part is if the client defaulted on their monthly payment where the salmon color means no, and the blue means yes.
-
-Lets take a look at the characteristics of the clients who did not default on their payment compared to those of the clients who did using our limit_bal variable. The first thing to make note of is that the group that defaulted has a wider base, letting us know that there was a large amount of clients who defaulted with lower credit limits available to them. The second thing we notice is that the group that did not default has more clients with larger credit limits and an outlier with a really high credit limit compared to the default group. 
-
 ### The Logistical Regression
 
-Now we will run a logistical regression
+Now that we have conducted all of our data management, and exploratory data analysis. The next part of our project is to conduct a logistical regression on our data. The logistical regression will allow us forecast what clients are likely to default on their next months credit card payment. We also want to determine what is a good cut-off point based on the predicted probability, 0.5? 0.4? 0.6? 
+
+### Logistical Regression Quick Review
+
+
 
 ```{R}
 # Logistic model
@@ -138,6 +162,8 @@ summary(logit.1)
 ```
 
 ### Predicting Credit Default Rates
+
+
 
 ```{R}
 pred = predict(logit.1, type = "response", credit)
