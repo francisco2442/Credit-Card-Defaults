@@ -17,6 +17,6 @@ Run a simple PCA "Principal Component Analysis" on the data and check how the fi
 ### Goal 4:
 Run a K-means cluster on the data with k = 4, and plot the chart with variables limit_bal and bill_amt. Briefly explain the 4 clusters in the chart.
 
-Link to Project HTML: https://francisco2442.github.io/Credit-Card-Defaults/
+Link to Project HTML: 
 
 ## Conclusion
