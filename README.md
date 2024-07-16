@@ -20,3 +20,9 @@ Run a K-means cluster on the data with k = 4, and plot the chart with variables 
 Link to Project HTML: https://francisco2442.github.io/Credit-Card-Defaults/
 
 ## Conclusion
+
+The Default of Credit Card Clients data set allowed us to practice key data skills. 
+The first was _**data acquisition**_, by obtaining and importing our data into RStudio.
+The second was _**data preparation**_, by cleaning and manipulating the variables within the data set to prepare for the analytics portion of the project.
+The third was the _**data analytics**_ phase, using statistics, logistical regression, and predictive models to uncover insights into our dependent and independent variables.
+the last data skill we practiced was _**data visualization**_, by creating charts and graphs throughout the project to better portray what was happening within the data.
