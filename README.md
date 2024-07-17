@@ -26,3 +26,6 @@ The first was _**data acquisition**_, by obtaining and importing our data into R
 The second was _**data preparation**_, by cleaning and manipulating the variables within the data set to prepare for the analytics portion of the project.
 The third was the _**data analytics**_ phase, using statistics, logistical regression, and predictive models to uncover insights into our dependent and independent variables.
 the last data skill we practiced was _**data visualization**_, by creating charts and graphs throughout the project to better portray what was happening within the data.
+
+# Work In Progress
+This Project is a work in progress and not yet complete. Updates are still being made.
