@@ -28,4 +28,4 @@ The third was the _**data analytics**_ phase, using statistics, logistical regre
 the last data skill we practiced was _**data visualization**_, by creating charts and graphs throughout the project to better portray what was happening within the data.
 
 # Work In Progress
-This Project is a work in progress and not yet complete. Updates are still being made.
+This project is a work in progress and not yet complete. Updates are still being made.
