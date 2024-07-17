@@ -1,5 +1,7 @@
 # Credit Card Defaults in Taiwan
 
+_**This project is a work in progress and not yet complete. Updates are still being made.**_
+
 ## About
 In this example, we will explore a dataset that contains information on default payments, demographic factors, credit data, history of payment, and bill statements of credit card clients in Taiwan from April 2005 to September 2005.
 
@@ -27,5 +29,3 @@ The second was _**data preparation**_, by cleaning and manipulating the variable
 The third was the _**data analytics**_ phase, using statistics, logistical regression, and predictive models to uncover insights into our dependent and independent variables.
 the last data skill we practiced was _**data visualization**_, by creating charts and graphs throughout the project to better portray what was happening within the data.
 
-# Work In Progress
-This project is a work in progress and not yet complete. Updates are still being made.
