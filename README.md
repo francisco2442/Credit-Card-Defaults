@@ -11,7 +11,7 @@ Source: https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients
 ### Goal 1:
 Employ exploratory data analysis techniques on the data set.
 ### Goal 2:
-Run a logistical regression to predict the probability of a client defaulting on their next month's credit card payment.
+Run a logistical regression to predict the probability of a new credit card client defaulting on their next month's credit card payment.
 ### Goal 3:
 Run a simple PCA "Principal Component Analysis" on the data and check how the first 5 PCs load all the variables.
 ### Goal 4:
