@@ -1,5 +1,3 @@
-
-setwd("C:/Users/franc/OneDrive/Documents/Data Science/WK5/GitHub5")
 library(caret)
 library(pROC)
 library(dplyr)
@@ -10,16 +8,10 @@ summary(credit1)
 
 missing = credit1 %>% summarise_all(funs(sum(is.na(.))/n()))
 missing
-# Lets remove the ID variable it is not needed
+# Let's remove the ID variable it is not needed
 credit=credit1[,-1]
 
 # preliminary check of the data
-# default...: o: No, 1: Yes
-# Pay_0 (2005/9): -2 full pay, -1: minimum pay, 0: delay 1 month, 1: delay 2 months, ... 8: delay 9 months
-# Pay_2 (2005/8), Pay_3 (2005/7),... Pay_6 (2005/4)
-# Sex: 1=male, 2=female
-# Education: 1: graduate school. 2: university, 3: high school, 4: others, 5:unknown, 6:unknown
-# Marriage: 1:married, 2: single, 3: others
 
 credit %>% 
   group_by(default.payment.next.month) %>% 
@@ -40,7 +32,7 @@ ggplot(credit, aes(x = PAY_0)) + geom_histogram()
 ggplot(credit, aes(x = PAY_2)) + geom_histogram()
 table(credit$PAY_0)
 
-# There are some catergories with very few observations. Let's group them together.
+# There are some categories with very few observations. Let's group them.
 credit$EDUCATION[credit$EDUCATION == 0] = 4
 credit$EDUCATION[credit$EDUCATION == 5] = 4
 credit$EDUCATION[credit$EDUCATION == 6] = 4
@@ -55,8 +47,8 @@ credit$SEX=as.factor(credit$SEX)
 credit$EDUCATION=as.factor(credit$EDUCATION)
 credit$MARRIAGE=as.factor(credit$MARRIAGE)
 
-# Some simple EDA
-# Default against catergorial variables
+# Some EDA
+# Default against categorical variables
 ggplot(credit, aes(x=SEX,fill=default.payment.next.month))+ geom_bar()+ theme_bw() 
 ggplot(credit, aes(x=EDUCATION,fill=default.payment.next.month))+ geom_bar()+theme_bw()
 ggplot(credit, aes(x=MARRIAGE,fill=default.payment.next.month))+ geom_bar()+theme_bw()
@@ -94,7 +86,7 @@ pred_default = factor(ifelse(pred >=0.5, "Yes", "No"))
 credit$default.payment.next.month = factor(ifelse(credit$default.payment.next.month==1, "Yes","No"))
 confusionMatrix(pred_default, credit$default.payment.next.month, positive = "Yes")
 
-# In seach of a better threshold
+# In search of a better threshold
 perform_fn = function(cutoff) 
 {
   pred_default = factor(ifelse(pred >= cutoff, "Yes", "No"))
