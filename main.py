@@ -15,9 +15,6 @@ import sys
 import csv
 import os
 
-# Setup working directory
-os.chdir("C:/Users/franc/OneDrive/Documents/Data Science/WK5/GitHub5/")
-
 # Import data
 credit = pd.read_csv("creditcard.csv")
 print(credit)
@@ -63,7 +60,7 @@ from sklearn.ensemble import BaggingClassifier
 from sklearn.metrics import accuracy_score,classification_report, precision_recall_curve, confusion_matrix
 from sklearn.model_selection import train_test_split
 
-# data visualization, and exploratory data analytics # todo finish the data visuals
+# data visualization and exploratory data analytics # todo finish the data visuals
 
 
 # splitting the data set
@@ -80,11 +77,11 @@ model = LogisticRegression()
 # fit the model to the training data
 model.fit(x_train, y_train)
 
-# making predictions on the test data
+# Making predictions on the test data
 y_pred = model.predict(x_test)
 y_pred
 
-# confusion matrix, for analyzing how well the model preformed
+# confusion matrix, for analyzing how well the model performed
 # Print accuracy score
 print("Accuracy Score:", accuracy_score(y_test, y_pred))
 
