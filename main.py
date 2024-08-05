@@ -33,7 +33,7 @@ missing_values = credit1.isnull().sum()
 print(missing_values)
 # no missing values in the data set
 
-# data cleaning, merging categorical variables with few observation
+# data cleaning, merging categorical variables with few observations
 print(credit1)
 # recording new education column
 credit1['EDUCATION'] = credit1['EDUCATION'].replace({0:4, 5:4, 6:4})
